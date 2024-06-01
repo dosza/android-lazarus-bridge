@@ -26,6 +26,8 @@ type
 
         constructor  Create(AOwner: TComponent);
         function getFdelta():real;
+        function getX1():real;
+        function getX2():real;
 
   published
         function solver(a : integer; b : integer ; c: integer ):boolean;
@@ -57,7 +59,6 @@ end;
 
 function Te2eq.solver(a: integer; b: integer; c: integer): boolean;
 var
-  x1,x2 : real;
   sqrtDelta: real;
 begin
   Fa:= a;
@@ -68,12 +69,18 @@ begin
   if (fDelta>= 0) then
   begin
     sqrtDelta:= sqrt(Fdelta);
-    x1:= ( sqrtDelta -b)/(2*a);
-    x2:= ( sqrtDelta + b)/(2*a);
     result:= True;
   end
   else
      raise EdeltaNegativo.Create('Delta < 0 não tem solução');
+  end;
+  function Te2eq.getX1():real;
+  begin
+      Result := ( sqrt(Fdelta) -Fb)/(2*Fa);
+  end;
+  function Te2eq.getX2():real;
+  begin
+    Result := ( sqrt(FDelta) + Fb)/(2*Fa);
   end;
 
 end.
