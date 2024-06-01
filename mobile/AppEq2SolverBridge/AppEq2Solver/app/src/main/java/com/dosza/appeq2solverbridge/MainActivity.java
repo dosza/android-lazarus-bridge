@@ -3,14 +3,17 @@ package com.dosza.appeq2solverbridge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dosza.appeq2solverbridge.eq2pasbridge.Eq2PasBridge;
 
+import java.security.InvalidParameterException;
+
 public class MainActivity extends AppCompatActivity {
-    private  TextView  inputA, inputB, inputC;
+    private TextView inputA, inputB, inputC;
     private Eq2PasBridge eq2solver;
 
     @Override
@@ -23,21 +26,23 @@ public class MainActivity extends AppCompatActivity {
         inputC = findViewById(R.id.inputC);
         eq2solver = new Eq2PasBridge();
     }
-    public void solver(View v){
-        int a,b,c;
-        float delta;
 
-        a = Integer.valueOf(inputA.getText().toString());
-        b = Integer.valueOf(inputB.getText().toString());
-        c = Integer.valueOf(inputC.getText().toString());
+    public void solver(View v) {
+        try {
+            int a, b, c;
+            float delta;
 
-        if ( eq2solver.isSoluble(a,b,c)){
-            delta = eq2solver.getDelta(a,b,c);
-            float[] x = eq2solver.getX(delta,b,c);
+            a = Integer.valueOf(inputA.getText().toString());
+            b = Integer.valueOf(inputB.getText().toString());
+            c = Integer.valueOf(inputC.getText().toString());
+
+            delta = eq2solver.getDelta(a, b, c);
+            float[] x = eq2solver.getX(delta, b, c);
             Toast.makeText(getApplicationContext(), "x1 = " + x[0], Toast.LENGTH_LONG).show();
             Toast.makeText(getApplicationContext(), "x2 = " + x[1], Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(getApplicationContext(), " S = { }"+ "\n Sem solução!" , Toast.LENGTH_LONG).show();
+        } catch (InvalidParameterException e) {
+            Log.e("JNI_Loading_libcontrols", "exception", e);
+            Toast.makeText(getApplicationContext(), " S = { }" + "\n Sem solução!", Toast.LENGTH_LONG).show();
         }
 
 

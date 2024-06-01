@@ -58,7 +58,9 @@ var
   x: TDynArrayOfSingle;
 begin
     SetLength(x,2); //aloca x
-    x.
+    x[0]:= eq2Solver.getX1();
+    X[1]:= eq2Solver.getX2();
+    Result:= x;
 
 
 end;
