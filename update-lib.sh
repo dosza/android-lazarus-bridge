@@ -1,7 +1,10 @@
 #!/usr/bin/env bash 
 
+LIB_PATH=./Eq2PasBridge/jni/libs/armeabi-v7a/libeq2pasbridge.so
+TARGET_LIB=./mobile/AppEq2SolverBridge/AppEq2Solver/app/src/main/jniLibs/armeabi-v7a
 
 getCurrentLibSum(){
+
 	current_lib_sum="$(
 		sha256sum $LIB_PATH | 
 		awk -F ' ' '{ print $1 }'| 
@@ -33,19 +36,21 @@ createDotEnv(){
 	
 	[ -e ./.env ] && return 1
 
-	getCurrentLibSum
-	echo "LIB_PATH=./Eq2PasBridge/jni/libs/armeabi-v7a/libeq2pasbridge.so" > ./.env
-	echo "TARGET_LIB=./AppEq2SolverBridge/AppEq2Solver/app/src/main/jniLibs" > ./.env
+	echo "echo LIB_PATH=$LIB_PATH" > ./.env
+	echo "TARGET_LIB=$TARGET_LIB" >> ./.env
 	echo "LIB_SUM=${current_lib_sum}" >> ./.env
+	getCurrentLibSum
 
+}
+
+checkIfExistsLibrary(){
+	[  -e $LIB_PATH ]
 }
 
 if [ -e ./.env ]; then
 	. ./.env
 
-	if [ ! -e $LIB_PATH ]; then
-		echo "$LIB_PATH does not exists!"
-		echo "rebuild your library"
+	if ! checkIfExistsLibrary; then
 		exit 1
 	fi
 
@@ -64,5 +69,11 @@ if [ -e ./.env ]; then
 
 else
 	echo "creating .env"
+	if ! checkIfExistsLibrary; then
+		echo "$LIB_PATH does not exists!"
+		echo "rebuild your library"
+		exit 1
+	fi
 	createDotEnv
+	cp $LIB_PATH $TARGET_LIB
 fi
