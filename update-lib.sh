@@ -59,15 +59,17 @@ checkIfCannotStart(){
 	fi
 }
 
+showUpdateMessage(){
+	 echo "Already update $LIB_PATH"
+}
+
 updateLibrary(){
 	
 	loadLibSum
 	getCurrentLibSum
 
-	if ! isRequireUpdateLibrary ;then
-		echo "Already update $LIB_PATH"; return
-	fi
-
+	! isRequireUpdateLibrary && showUpdateMessage && return 
+	
 	echo "updating .env"
 	updateDotEnv
 	cp $LIB_PATH $TARGET_LIB
