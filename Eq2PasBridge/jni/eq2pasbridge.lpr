@@ -72,7 +72,25 @@ begin
   Result:=Java_Call_getX(PEnv, this, delta, b, c);
 end;
 
-const NativeMethods: array[0..2] of JNINativeMethod = (
+{ Class:     com_dosza_appeq2solverbridge_eq2pasbridge_Eq2PasBridge
+  Method:    getX1
+  Signature: (FII)F }
+function getX1(PEnv: PJNIEnv; this: JObject; delta: JFloat; b: JInt; c: JInt
+  ): JFloat; cdecl;
+begin
+  Result:=Java_Call_getX1(PEnv, this, delta, b, c);
+end;
+
+{ Class:     com_dosza_appeq2solverbridge_eq2pasbridge_Eq2PasBridge
+  Method:    getX2
+  Signature: (FII)F }
+function getX2(PEnv: PJNIEnv; this: JObject; delta: JFloat; b: JInt; c: JInt
+  ): JFloat; cdecl;
+begin
+  Result:=Java_Call_getX2(PEnv, this, delta, b, c);
+end;
+
+const NativeMethods: array[0..4] of JNINativeMethod = (
    (name: 'isSoluble';
     signature: '(III)Z';
     fnPtr: @isSoluble; ),
@@ -81,7 +99,13 @@ const NativeMethods: array[0..2] of JNINativeMethod = (
     fnPtr: @getDelta; ),
    (name: 'getX';
     signature: '(FII)[F';
-    fnPtr: @getX; )
+    fnPtr: @getX; ),
+   (name: 'getX1';
+    signature: '(FII)F';
+    fnPtr: @getX1; ),
+   (name: 'getX2';
+    signature: '(FII)F';
+    fnPtr: @getX2; )
 );
 
 function RegisterNativeMethodsArray(PEnv: PJNIEnv; className: PChar; 
@@ -147,7 +171,11 @@ exports
     +'isSoluble',
   getDelta name 'Java_com_dosza_appeq2solverbridge_eq2pasbridge_Eq2PasBridge_'
     +'getDelta',
-  getX name 'Java_com_dosza_appeq2solverbridge_eq2pasbridge_Eq2PasBridge_getX';
+  getX name 'Java_com_dosza_appeq2solverbridge_eq2pasbridge_Eq2PasBridge_getX',
+  getX1 name 
+    'Java_com_dosza_appeq2solverbridge_eq2pasbridge_Eq2PasBridge_getX1',
+  getX2 name 
+    'Java_com_dosza_appeq2solverbridge_eq2pasbridge_Eq2PasBridge_getX2';
 
 {%endregion}
   

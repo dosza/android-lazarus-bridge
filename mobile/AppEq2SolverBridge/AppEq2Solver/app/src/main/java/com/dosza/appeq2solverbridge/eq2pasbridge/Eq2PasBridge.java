@@ -19,4 +19,8 @@ public class Eq2PasBridge {
 
     public native float[] getX(float delta, int b, int c);
 
+    public native float getX1(float delta, int b, int c);
+
+    public native float getX2(float delta, int b, int c);
+
 }

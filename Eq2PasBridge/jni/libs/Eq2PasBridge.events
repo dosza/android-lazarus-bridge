@@ -1,3 +1,5 @@
 isSoluble=Java_Call_isSoluble(PEnv,this,a,b,c);
 getDelta=Java_Call_getDelta(PEnv,this,a,b,c);
 getX=Java_Call_getX(PEnv,this,delta,b,c);
+getX1=Java_Call_getX1(PEnv,this,delta,b,c);
+getX2=Java_Call_getX2(PEnv,this,delta,b,c);

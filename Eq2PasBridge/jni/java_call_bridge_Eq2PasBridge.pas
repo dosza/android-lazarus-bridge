@@ -10,7 +10,8 @@ uses
 function Java_Call_isSoluble(env:PJNIEnv;this:JObject;a:integer;b:integer;c:integer):jBoolean;
 function Java_Call_getDelta(env:PJNIEnv;this:JObject;a:integer;b:integer;c:integer):single;
 function Java_Call_getX(env:PJNIEnv;this:JObject;delta:single;b:integer;c:integer):jfloatArray;
- 
+function Java_Call_getX1(env:PJNIEnv;this:JObject;delta:single;b:integer;c:integer):single;
+function Java_Call_getX2(env:PJNIEnv;this:JObject;delta:single;b:integer;c:integer):single;
 implementation
  
 uses
@@ -37,6 +38,21 @@ begin
   outReturn:= NoGUIAndroidModule1.getX(delta,b,c);
   Result:=GetJObjectOfDynArrayOfSingle(env,outReturn);
 end;
+function Java_Call_getX1(env:PJNIEnv;this:JObject;delta:single;b:integer;c:integer):single;
+var
+  outReturn: single;
+begin
+    outReturn:=  NoGUIAndroidModule1.getX1(delta,b,c);
+  Result:=outReturn;
+end;
+function Java_Call_getX2(env:PJNIEnv;this:JObject;delta:single;b:integer;c:integer):single;
+var
+  outReturn: single;
+begin
+    outReturn:=  NoGUIAndroidModule1.getX2(delta,b,c);
+  Result:=outReturn;
+end;
+
  
 end. 
  

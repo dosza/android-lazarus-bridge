@@ -24,6 +24,9 @@ type
     function isSoluble(a: integer; b: integer; c: integer): boolean;
     function getDelta(a: integer; b: integer; c: integer): single;
     function getX(delta: single; b: integer; c: integer): TDynArrayOfSingle;
+    function getX1(delta:single;b:integer;c:integer): single;
+    function getX2(delta:single;b:integer;c:integer): single;
+
   end;
 
 var
@@ -69,7 +72,15 @@ begin
 
 
 end;
-  
+
+function TNoGUIAndroidModule1.getX1(delta:single;b:integer;c:integer): single;
+begin
+    Result:= eq2Solver.getX1();
+end;
+function TNoGUIAndroidModule1.getX2(delta:single;b:integer;c:integer): single;
+begin
+    Result:= eq2Solver.getX2();
+end;
 
   
 end.

@@ -8,10 +8,10 @@
         <Filename Value="eq2pasbridge.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
+        <TopLine Value="69"/>
+        <CursorPos X="11" Y="81"/>
         <UsageCount Value="23"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
         <Filename Value="ueq2pasbridge.pas"/>
@@ -19,9 +19,8 @@
         <ComponentName Value="NoGUIAndroidModule1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="48"/>
-        <CursorPos X="22" Y="56"/>
+        <TopLine Value="62"/>
+        <CursorPos X="29" Y="78"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -36,20 +35,21 @@
       </Unit2>
       <Unit3>
         <Filename Value="java_call_bridge_Eq2PasBridge.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="12"/>
-        <CursorPos X="63" Y="2"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="34"/>
+        <CursorPos X="18" Y="52"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
         <Filename Value="../../components/dosza-e2eq/exception/uedeltanegativo.pas"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit4>
     </Units>
-    <JumpHistory Count="8" HistoryIndex="7">
+    <JumpHistory Count="11" HistoryIndex="10">
       <Position1>
         <Filename Value="ueq2pasbridge.pas"/>
         <Caret Line="39" Column="14" TopLine="24"/>
@@ -82,6 +82,18 @@
         <Filename Value="ueq2pasbridge.pas"/>
         <Caret Line="57" Column="23" TopLine="45"/>
       </Position8>
+      <Position9>
+        <Filename Value="ueq2pasbridge.pas"/>
+        <Caret Line="78" Column="29" TopLine="62"/>
+      </Position9>
+      <Position10>
+        <Filename Value="java_call_bridge_Eq2PasBridge.pas"/>
+        <Caret Line="55" Column="2" TopLine="31"/>
+      </Position10>
+      <Position11>
+        <Filename Value="ueq2pasbridge.pas"/>
+        <Caret Line="78" Column="29" TopLine="62"/>
+      </Position11>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
