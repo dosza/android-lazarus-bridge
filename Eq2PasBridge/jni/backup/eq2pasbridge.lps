@@ -3,7 +3,7 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="eq2pasbridge.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -11,7 +11,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="21"/>
+        <UsageCount Value="23"/>
       </Unit0>
       <Unit1>
         <Filename Value="ueq2pasbridge.pas"/>
@@ -20,9 +20,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="43"/>
-        <CursorPos X="16" Y="63"/>
-        <UsageCount Value="21"/>
+        <TopLine Value="48"/>
+        <CursorPos X="26" Y="56"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -42,8 +42,14 @@
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="../../components/dosza-e2eq/exception/uedeltanegativo.pas"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit4>
     </Units>
-    <JumpHistory Count="4" HistoryIndex="3">
+    <JumpHistory Count="8" HistoryIndex="7">
       <Position1>
         <Filename Value="ueq2pasbridge.pas"/>
         <Caret Line="39" Column="14" TopLine="24"/>
@@ -60,6 +66,22 @@
         <Filename Value="ueq2pasbridge.pas"/>
         <Caret Line="63" Column="16" TopLine="44"/>
       </Position4>
+      <Position5>
+        <Filename Value="ueq2pasbridge.pas"/>
+        <Caret Line="56" Column="26" TopLine="46"/>
+      </Position5>
+      <Position6>
+        <Filename Value="ueq2pasbridge.pas"/>
+        <Caret Line="57" Column="7" TopLine="43"/>
+      </Position6>
+      <Position7>
+        <Filename Value="ueq2pasbridge.pas"/>
+        <Caret Line="56" Column="22" TopLine="45"/>
+      </Position7>
+      <Position8>
+        <Filename Value="ueq2pasbridge.pas"/>
+        <Caret Line="57" Column="23" TopLine="45"/>
+      </Position8>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

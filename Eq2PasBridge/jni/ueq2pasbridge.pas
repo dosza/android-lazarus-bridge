@@ -8,7 +8,7 @@ uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
-  Classes, {SysUtils,} jni, jnihelper, e2eq;
+  Classes, {SysUtils,} jni, jnihelper, e2eq,uedeltanegativo;
   
 type
 
@@ -48,8 +48,13 @@ end;
 function TNoGUIAndroidModule1.getDelta(a: integer; b: integer; c: integer
   ): single;
 begin
-    eq2Solver.solver(a,b,c);
-    Result:= eq2Solver.getFdelta();
+    try
+       eq2Solver.solver(a,b,c);
+       Result:= eq2Solver.getFdelta();
+    Except
+      on e: EdeltaNegativo do
+      Result:= MaxInt;
+    end;
 end;
   
 function TNoGUIAndroidModule1.getX(delta: single; b: integer; c: integer
