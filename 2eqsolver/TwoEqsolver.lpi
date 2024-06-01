@@ -50,7 +50,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="TwoEqsolver"/>
+      <Filename Value="TwoEqsolver.bin"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
