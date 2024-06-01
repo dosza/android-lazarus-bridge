@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         if ( eq2solver.isSoluble(a,b,c)){
             delta = eq2solver.getDelta(a,b,c);
-            Toast.makeText(getApplicationContext(), "a = " + a, Toast.LENGTH_LONG).show();
             float[] x = eq2solver.getX(delta,b,c);
             Toast.makeText(getApplicationContext(), "x1 = " + x[0], Toast.LENGTH_LONG).show();
             Toast.makeText(getApplicationContext(), "x2 = " + x[1], Toast.LENGTH_LONG).show();
