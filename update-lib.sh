@@ -69,7 +69,7 @@ updateLibrary(){
 	getCurrentLibSum
 
 	! isRequireUpdateLibrary && showUpdateMessage && return 
-	
+
 	echo "updating .env"
 	updateDotEnv
 	cp $LIB_PATH $TARGET_LIB
@@ -81,13 +81,11 @@ main(){
 	checkIfCannotStart
 	createTargetLib
 	
-	if existsDotEnv;then 
-		updateLibrary
-	else
-		echo "creating .env"
-		createDotEnv
-		cp $LIB_PATH $TARGET_LIB
-	fi	
+	existsDotEnv && updateLibrary && return 
+
+	echo "creating .env"
+	createDotEnv
+	cp $LIB_PATH $TARGET_LIB	
 }
 
 main
