@@ -8,15 +8,21 @@ getCurrentLibSum(){
 		sed 's/[[:blank:]]//g'
 	)"
 }
+
+getLibSumFromDotEnv(){
+	old_lib_sum="$(
+		grep LIB_SUM $LIB_PATH | 
+		awk -F "=" '{ print $2 }' |
+		sed 's/[[:blank:]]//g'
+	)"
+}
+
 updateDotEnv(){
 	[ ! -e ./.env ]  && return 1
 
-	local old_lib_sum="$(
-		grep LIB_SUM $LIB_PATH | 
-		awk -F "=" '{ print $1 }' |
-		sed 's/[[:blank:]]//g'
-	)"
-	
+	local old_lib_sum
+
+	getLibSumFromDotEnv
 	getCurrentLibSum
 	
 	sed  -i "s/$old_lib_sum/$current_lib_sum/g" ./.env
@@ -48,10 +54,12 @@ if [ -e ./.env ]; then
 	fi
 
 	getCurrentLibSum
-	if !( sha256sum $LIB_PATH | grep "$LIB_SUM" ) || [ ! -e "$TARGET_LIB/libeq2pasbridge.so" ];then
+	if !( sha256sum $LIB_PATH | grep "$LIB_SUM" -q ) || [ ! -e "$TARGET_LIB/libeq2pasbridge.so" ];then
 		echo "updating .env"
 		updateDotEnv
 		cp $LIB_PATH $TARGET_LIB
+	else 
+		echo "Already update $LIB_PATH"
 	fi
 
 else
