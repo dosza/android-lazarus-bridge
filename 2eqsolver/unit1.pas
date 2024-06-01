@@ -57,9 +57,9 @@ begin
      b:= StrToInt(inputB.Text);
      c:= StrToInt(inputC.Text);
      if (e2eq1.solver(a,b,c)) then
-     begin
-         showMessage(FloatToStr(e2eq1.getX1()) + ' ' + FloatToStr(e2eq1.getX2()));
-     end;
+         showMessage('S = {' +  FloatToStr(e2eq1.getX1()) + ' , ' + FloatToStr(e2eq1.getX2()) + '}')
+     else
+       ShowMessage( 'S = {}');
 end;
 
 procedure TForm1.inputCChange(Sender: TObject);
