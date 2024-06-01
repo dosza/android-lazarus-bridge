@@ -56,10 +56,13 @@ begin
      a:= StrToInt(inputA.Text);
      b:= StrToInt(inputB.Text);
      c:= StrToInt(inputC.Text);
-     if (e2eq1.solver(a,b,c)) then
+     try
+       e2eq1.solver(a,b,c) ;
          showMessage('S = {' +  FloatToStr(e2eq1.getX1()) + ' , ' + FloatToStr(e2eq1.getX2()) + '}')
-     else
-       ShowMessage( 'S = {}');
+     except
+        on Exception do
+           ShowMessage( 'S = {}');
+     end;
 end;
 
 procedure TForm1.inputCChange(Sender: TObject);
