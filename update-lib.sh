@@ -31,33 +31,61 @@ checkIfExistsLibrary(){
 	[  -e $LIB_PATH ]
 }
 
-if [ -e ./.env ]; then
-	. ./.env
+existsDotEnv(){
+	[ -e ./.env ]
+}
 
-	if ! checkIfExistsLibrary; then
-		exit 1
-	fi
+loadLibSum(){
+	[ ! -e ./.env ] && return 
+	LIB_SUM="$(grep LIB_SUM= ./.env | awk -F= '{ print $2 } ')"
+}
 
+createTargetLib(){
 	if [ ! -e $TARGET_LIB ]; then
 		mkdir -p $TARGET_LIB
 	fi
+}
 
-	getCurrentLibSum
-	if [ "$current_lib_sum" != "$LIB_SUM" ] || [ ! -e "$TARGET_LIB/libeq2pasbridge.so" ];then
-		echo "updating .env"
-		updateDotEnv
-		cp $LIB_PATH $TARGET_LIB
-	else 
-		echo "Already update $LIB_PATH"
-	fi
+isRequireUpdateLibrary(){
+	[ "$current_lib_sum" != "$LIB_SUM" ] || 
+	[ ! -e "$TARGET_LIB/libeq2pasbridge.so" ]
+}
 
-else
-	echo "creating .env"
+checkIfCannotStart(){
 	if ! checkIfExistsLibrary; then
 		echo "$LIB_PATH does not exists!"
 		echo "rebuild your library"
 		exit 1
 	fi
-	createDotEnv
+}
+
+updateLibrary(){
+	
+	loadLibSum
+	getCurrentLibSum
+
+	if ! isRequireUpdateLibrary ;then
+		echo "Already update $LIB_PATH"; return
+	fi
+
+	echo "updating .env"
+	updateDotEnv
 	cp $LIB_PATH $TARGET_LIB
-fi
+
+}
+
+main(){
+
+	checkIfCannotStart
+	createTargetLib
+	
+	if existsDotEnv;then 
+		updateLibrary
+	else
+		echo "creating .env"
+		createDotEnv
+		cp $LIB_PATH $TARGET_LIB
+	fi	
+}
+
+main
