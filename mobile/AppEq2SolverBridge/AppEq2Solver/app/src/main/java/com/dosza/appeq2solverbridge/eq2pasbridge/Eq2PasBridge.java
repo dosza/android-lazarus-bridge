@@ -1,4 +1,4 @@
-package com.dosza.appeq2solverbridge.eq2pasbrigdge;
+package com.dosza.appeq2solverbridge.eq2pasbridge;
 
 import android.util.Log;
 
