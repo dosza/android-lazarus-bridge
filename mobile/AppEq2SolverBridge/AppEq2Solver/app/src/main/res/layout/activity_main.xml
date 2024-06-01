@@ -12,9 +12,45 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <TextView
+            android:id="@+id/textViewA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Enter the coefficient A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.459"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/inputA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+
+            android:inputType="numberSigned"
+            app:layout_constraintBottom_toTopOf="@+id/textViewB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewA" />
+
+        <TextView
+            android:id="@+id/textViewB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Enter the coefficient B"
+            app:layout_constraintBottom_toTopOf="@+id/inputB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputA" />
+
+        <EditText
+            android:id="@+id/inputB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -22,17 +58,20 @@
             android:inputType="numberSigned"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewB"
+            tools:ignore="UnknownId" />
 
-        <EditText
-            android:id="@+id/inputB"
+        <TextView
+            android:id="@+id/textViewC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberSigned"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Enter the coefficient C"
+            app:layout_constraintBottom_toTopOf="@+id/inputC"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputA" />
+            app:layout_constraintTop_toBottomOf="@+id/inputB" />
 
         <EditText
             android:id="@+id/inputC"
@@ -42,19 +81,21 @@
             android:inputType="numberSigned"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputB" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewC" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
             android:onClick="solver"
             android:text="solve"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/inputC"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputC" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
