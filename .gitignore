@@ -24,7 +24,10 @@ hs_err_pid*
 replay_pid*
 *.ppu
 *.o
+*.or
 *.compiled
 *.bak
 *.bin
 *.so
+
+.env
