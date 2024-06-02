@@ -28,12 +28,15 @@ public class MainActivity extends AppCompatActivity {
         eq2solver = new Eq2PasBridge();
     }
 
-    public boolean isValidInputA(int a){
-        if ( a == 0) return false;
-        return true;
+
+    public boolean isValidCoefficientA(int a){
+        return a  != 0;
     }
 
     public void solver(View v) {
+
+
+
         try {
             int a, b, c;
             float delta,x1,x2;
@@ -41,8 +44,10 @@ public class MainActivity extends AppCompatActivity {
             a = Integer.valueOf(inputA.getText().toString());
             b = Integer.valueOf(inputB.getText().toString());
             c = Integer.valueOf(inputC.getText().toString());
-            if ( ! isValidInputA(a)){
-                Toast.makeText(getApplicationContext(), "Coefficient 'A' cannot be 0", Toast.LENGTH_LONG).show();
+
+
+            if ( ! isValidCoefficientA(a)) {
+                Toast.makeText(getApplicationContext(), "Coefficiente 'a' cannot be 0", Toast.LENGTH_LONG).show();
                 return;
             }
             delta = eq2solver.getDelta(a, b, c);
