@@ -19,7 +19,8 @@
         <ComponentName Value="NoGUIAndroidModule1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <TopLine Value="62"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="11"/>
         <CursorPos X="29" Y="78"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>

@@ -60,7 +60,7 @@ checkIfCannotStart(){
 }
 
 showUpdateMessage(){
-	 echo "Already update $LIB_PATH"
+	 echo "$LIB_PATH already update!!"
 }
 
 updateLibrary(){
