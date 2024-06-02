@@ -13,7 +13,7 @@ import com.dosza.appeq2solverbridge.eq2pasbridge.Eq2PasBridge;
 import java.security.InvalidParameterException;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView inputA, inputB, inputC;
+    private TextView textResult, inputA, inputB, inputC;
     private Eq2PasBridge eq2solver;
 
     @Override
@@ -24,7 +24,13 @@ public class MainActivity extends AppCompatActivity {
         inputA = findViewById(R.id.inputA);
         inputB = findViewById(R.id.inputB);
         inputC = findViewById(R.id.inputC);
+        textResult = findViewById(R.id.texResult);
         eq2solver = new Eq2PasBridge();
+    }
+
+    public boolean isValidInputA(int a){
+        if ( a == 0) return false;
+        return true;
     }
 
     public void solver(View v) {
@@ -35,15 +41,17 @@ public class MainActivity extends AppCompatActivity {
             a = Integer.valueOf(inputA.getText().toString());
             b = Integer.valueOf(inputB.getText().toString());
             c = Integer.valueOf(inputC.getText().toString());
-
+            if ( ! isValidInputA(a)){
+                Toast.makeText(getApplicationContext(), "Coefficient 'A' cannot be 0", Toast.LENGTH_LONG).show();
+                return;
+            }
             delta = eq2solver.getDelta(a, b, c);
             x1 = eq2solver.getX1(delta,b,c);
             x2 = eq2solver.getX2(delta,b,c);
-           // float[] x = eq2solver.getX(delta, b, c);
-            Toast.makeText(getApplicationContext(), "S = { "  + x1 + ","+ x2 + " }", Toast.LENGTH_LONG).show();
+            textResult.setText("{ "+x1+"," +x2 + " }");
         } catch (InvalidParameterException e) {
-            Log.e("JNI_Loading_libcontrols", "exception", e);
-            Toast.makeText(getApplicationContext(), " S = { }" + "\n Sem solução!", Toast.LENGTH_LONG).show();
+            Log.e("Delta negativo", "exception", e);
+           Toast.makeText(getApplicationContext(), " S = { }" + "\n There is no solution!", Toast.LENGTH_LONG).show();
         }
 
 
