@@ -53,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
             delta = eq2solver.getDelta(a, b, c);
             x1 = eq2solver.getX1(delta,b,c);
             x2 = eq2solver.getX2(delta,b,c);
-            textResult.setText("{ "+x1+"," +x2 + " }");
-        } catch (InvalidParameterException e) {
+            textResult.setText(" S = { "+x1+"," +x2 + " }");
+        } catch (NumberFormatException e) {
             Log.e("Delta negativo", "exception", e);
-           Toast.makeText(getApplicationContext(), " S = { }" + "\n There is no solution!", Toast.LENGTH_LONG).show();
+           Toast.makeText(getApplicationContext(), " Format invalid!", Toast.LENGTH_LONG).show();
         }
 
 
