@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             if ( ! isValidCoefficientA(a)) {
-                Toast.makeText(getApplicationContext(), "Coefficiente 'a' cannot be 0", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Coefficient 'a' cannot be 0", Toast.LENGTH_LONG).show();
                 return;
             }
             delta = eq2solver.getDelta(a, b, c);
